@@ -9,13 +9,12 @@
 (setq user-full-name "John Doe"
       user-mail-address "john@doe.com")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16) ; inherits `doom-font''s :size
-      doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
-      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 19))
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 18) ; inherits `doom-font''s :size
+      doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
+      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
 
-(set-frame-parameter nil 'alpha-background 70)
-(add-to-list 'default-frame-alist '(alpha-background . 70))
+(add-to-list 'default-frame-alist '(alpha . 90))
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -43,7 +42,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
