@@ -14,7 +14,8 @@
       doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
 
-(add-to-list 'default-frame-alist '(alpha . 90))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+;;(add-to-list 'default-frame-alist '(alpha . 90))
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
