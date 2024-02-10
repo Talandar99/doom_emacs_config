@@ -1,1 +1,1 @@
-[emacs_price.png]
+(emacs_price.png)
