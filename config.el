@@ -12,11 +12,12 @@
 
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 18) ; inherits `doom-font''s :size
-      doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
+      doom-symbol-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
 ;;
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 (add-to-list 'default-frame-alist '(alpha . 90))
+
 
 ;; Windows specific
 (add-to-list 'default-frame-alist '(fullscreen, maximized))
@@ -54,8 +55,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/.org/")
-
-
+(setq elcord-editor-icon "emacs_icon")
+(setq elcord--editor-name "DOOM Emacs")
+(elcord-mode)
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -87,3 +89,4 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
