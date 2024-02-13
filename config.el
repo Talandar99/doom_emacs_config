@@ -1,4 +1,3 @@
-
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
 ;; email / git confug
@@ -16,6 +15,10 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ; theme
 (setq doom-theme 'doom-tokyo-night)
+(custom-set-faces
+  '(default ((t (:background "#000000"))))
+  )
+
 (setq display-line-numbers-type 'relative)
 ;(set-face-foreground 'line-number "#FF0000")
 ;(set-face-background 'line-number "#FF0000")
