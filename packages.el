@@ -7,3 +7,6 @@
 (package! beacon)
 ;org to markdown
 (package! ox-gfm)
+;treesitter
+(package! tree-sitter)
+(package! tree-sitter-langs)

@@ -31,3 +31,9 @@
 ;; Github Flavored Markdown exporter for Org Mode
 (eval-after-load "org"
   '(require 'ox-gfm nil t))
+;; treesitter
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
