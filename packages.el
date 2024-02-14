@@ -10,3 +10,5 @@
 ;treesitter
 (package! tree-sitter)
 (package! tree-sitter-langs)
+;harpoon
+(package! harpoon)

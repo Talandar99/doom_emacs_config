@@ -17,7 +17,6 @@
 ; theme
 (setq doom-theme 'doom-tokyo-night)
 ; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
-(map! "SPC-g-q" 'magit)
 (setq display-line-numbers-type 'relative)
 ;set background to be black
 (custom-set-faces
@@ -42,3 +41,14 @@
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+(map! :n "M-=" 'harpoon-add-file)
+(map! :n "M--" 'harpoon-toggle-file)
+(map! :n "M-1" 'harpoon-go-to-1)
+(map! :n "M-2" 'harpoon-go-to-2)
+(map! :n "M-3" 'harpoon-go-to-3)
+(map! :n "M-4" 'harpoon-go-to-4)
+(map! :n "M-5" 'harpoon-go-to-5)
+(map! :n "M-6" 'harpoon-go-to-6)
+(map! :n "M-7" 'harpoon-go-to-7)
+(map! :n "M-8" 'harpoon-go-to-8)
+(map! :n "M-9" 'harpoon-go-to-9)
