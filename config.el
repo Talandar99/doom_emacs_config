@@ -1,9 +1,16 @@
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Misc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
 ;; email / git confug
 (setq user-full-name "Talandar"
       user-mail-address "talandar99@protonmail.com")
+;; org directory
+(setq org-directory "~/.org/")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; UI / Theme / visuals
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; fonts
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16) ; inherits `doom-font''s :size
@@ -15,20 +22,25 @@
 ;; open in fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ; theme
-(setq doom-theme 'doom-tokyo-night)
 ; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
+(setq doom-theme 'doom-tokyo-night)
+; line numbers
 (setq display-line-numbers-type 'relative)
 ;set background to be black
 (custom-set-faces
-  '(default ((t (:background "#000000")))))
+  '(default ((t (:background "#0a1124")))))
 ; turn off bold
 (setq doom-themes-enable-bold nil)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; plugins config
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom keymaps
-;; org directory
-(setq org-directory "~/.org/")
 ;; disocrd status
 (setq elcord-editor-icon "emacs_icon")
 (setq elcord--editor-name "DOOM Emacs")
+(setq elcord- "DOOM Emacs")
 (elcord-mode)
 ;; Beacon
 (beacon-mode 1)
@@ -41,6 +53,7 @@
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+;; harpoon keybindings
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
 (map! :n "M-1" 'harpoon-go-to-1)
@@ -52,3 +65,25 @@
 (map! :n "M-7" 'harpoon-go-to-7)
 (map! :n "M-8" 'harpoon-go-to-8)
 (map! :n "M-9" 'harpoon-go-to-9)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; make shit works like in VIM
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; substition works as intended
+(setq evil-ex-search-case 'sensitive)
+
+;; treat _ as a word
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?_ "w")))
+
+;; increment works like you expect it to
+(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+(define-key evil-visual-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+(define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+;; use fucking editorconfig
+(setq lsp-enable-indentation nil)
+(editorconfig-mode 1)
+(global-visual-line-mode -1)
