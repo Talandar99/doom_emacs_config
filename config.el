@@ -1,11 +1,12 @@
+
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
 ;; email / git confug
 (setq user-full-name "Talandar"
       user-mail-address "talandar99@protonmail.com")
 ;; fonts
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 18) ; inherits `doom-font''s :size
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16) ; inherits `doom-font''s :size
       doom-symbol-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
 ;; transparency
@@ -15,13 +16,14 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ; theme
 (setq doom-theme 'doom-tokyo-night)
-(custom-set-faces
-  '(default ((t (:background "#000000"))))
-  )
-
+; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
+(map! "SPC-g-q" 'magit)
 (setq display-line-numbers-type 'relative)
-;(set-face-foreground 'line-number "#FF0000")
-;(set-face-background 'line-number "#FF0000")
+;set background to be black
+(custom-set-faces
+  '(default ((t (:background "#000000")))))
+; turn off bold
+(setq doom-themes-enable-bold nil)
 ;; custom keymaps
 ;; org directory
 (setq org-directory "~/.org/")
