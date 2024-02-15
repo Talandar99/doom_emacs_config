@@ -65,6 +65,7 @@
 (map! :n "M-7" 'harpoon-go-to-7)
 (map! :n "M-8" 'harpoon-go-to-8)
 (map! :n "M-9" 'harpoon-go-to-9)
+(map! :n "SPC-t-c" 'display-fill-column-indicator)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; make shit works like in VIM
@@ -87,3 +88,5 @@
 (setq lsp-enable-indentation nil)
 (editorconfig-mode 1)
 (global-visual-line-mode -1)
+;; fennel mode
+(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))

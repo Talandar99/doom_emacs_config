@@ -12,3 +12,5 @@
 (package! tree-sitter-langs)
 ;harpoon
 (package! harpoon)
+;fennel
+(package! fennel-mode)
