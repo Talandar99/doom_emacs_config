@@ -66,13 +66,11 @@
 (map! :n "M-8" 'harpoon-go-to-8)
 (map! :n "M-9" 'harpoon-go-to-9)
 (map! :n "SPC-t-c" 'display-fill-column-indicator)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; make shit works like in VIM
+;; make stuff works like in VIM
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; substition works as intended
-(setq evil-ex-search-case 'sensitive)
+(setq evil-ex-substitute-case' sensitive)
 
 ;; treat _ as a word
 (add-hook 'after-change-major-mode-hook
@@ -85,12 +83,21 @@
 (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 (define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 
+;; split horizontal resizing
 (define-key evil-normal-state-map (kbd "C-M-=") 'enlarge-window-horizontally)
 (define-key evil-normal-state-map (kbd "C-M--") 'shrink-window-horizontally)
 
-;; use fucking editorconfig
+;; use editorconfig
 (setq lsp-enable-indentation nil)
 (editorconfig-mode 1)
-(global-visual-line-mode -1)
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+
+;; disable wraping
+(remove-hook 'text-mode-hook #'visual-line-mode)
+(+global-word-wrap-mode 0)
+(+word-wrap-mode 0)
+;; tab add 4 space
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
