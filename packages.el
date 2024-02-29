@@ -1,16 +1,16 @@
 (package! tldr)
-;dired commander
+;;dired commander
 (package! diredc)
-;discord presence
+;;discord presence
 (package! elcord)
-;beacon
+;;beacon
 (package! beacon)
-;org to markdown
+;;org to markdown
 (package! ox-gfm)
-;treesitter
+;;treesitter
 (package! tree-sitter)
 (package! tree-sitter-langs)
-;harpoon
+;;harpoon
 (package! harpoon)
-;fennel
+;;fennel
 (package! fennel-mode)

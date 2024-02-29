@@ -21,15 +21,14 @@
 (add-to-list 'default-frame-alist '(alpha . 90))
 ;; open in fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-; theme
-; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
+;; theme
+;; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
 (setq doom-theme 'doom-tokyo-night)
-; line numbers
+;; line numbers
 (setq display-line-numbers-type 'relative)
-;set background to be black
-(custom-set-faces
-  '(default ((t (:background "#0a1124")))))
-; turn off bold
+;; set background to be black
+(custom-set-faces '(default ((t (:background "#0a1124")))))
+;; turn off bold
 (setq doom-themes-enable-bold nil)
 
 
@@ -66,6 +65,7 @@
 (map! :n "M-8" 'harpoon-go-to-8)
 (map! :n "M-9" 'harpoon-go-to-9)
 (map! :n "SPC-t-c" 'display-fill-column-indicator)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; make stuff works like in VIM
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -90,6 +90,10 @@
 ;; use editorconfig
 (setq lsp-enable-indentation nil)
 (editorconfig-mode 1)
+
+;; autoformat on save using editor config
+(add-hook 'before-save-hook #'editorconfig-format-buffer)
+
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
 
@@ -97,7 +101,9 @@
 (remove-hook 'text-mode-hook #'visual-line-mode)
 (+global-word-wrap-mode 0)
 (+word-wrap-mode 0)
+
 ;; tab add 4 space
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+
