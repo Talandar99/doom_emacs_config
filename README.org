@@ -9,12 +9,17 @@
 :END:
 main configuraiton file
 ** Theme
+*** Fonts
 #+begin_src elisp
-;; fonts
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16) ; inherits `doom-font''s :size
       doom-symbol-font (font-spec :family "FiraCode Nerd Font Mono" :size 18)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
+;; turn off bold
+(setq doom-themes-enable-bold nil)
+#+end_src
+*** Other
+#+begin_src elisp
 ;; transparency
 (set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 (add-to-list 'default-frame-alist '(alpha . 90))
@@ -26,12 +31,10 @@ main configuraiton file
 (setq display-line-numbers-type 'relative)
 ;; set background to be black
 (custom-set-faces '(default ((t (:background "#0a1124")))))
-;; turn off bold
-(setq doom-themes-enable-bold nil)
 #+end_src
 ** KeyBindings
+*** Harpoon
 #+begin_src elisp
-;; harpoon keybindings
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
 (map! :n "M-1" 'harpoon-go-to-1)
@@ -44,49 +47,58 @@ main configuraiton file
 (map! :n "M-8" 'harpoon-go-to-8)
 (map! :n "M-9" 'harpoon-go-to-9)
 (map! :n "SPC-t-c" 'display-fill-column-indicator)
-
-;; increment works like in VIM
+#+end_src
+*** C-x and C-a increment works like in VIM
+#+begin_src elisp
 (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (define-key evil-visual-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 (define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-
-;; split horizontal resizing
+#+end_src
+*** Horizontal split resizing
+#+begin_src elisp
 (define-key evil-normal-state-map (kbd "C-M-=") 'enlarge-window-horizontally)
 (define-key evil-normal-state-map (kbd "C-M--") 'shrink-window-horizontally)
-
 #+end_src
-** Misc
+** Other
+*** Other
 #+begin_src elisp
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
-;; email / git confug
+;; email / git config
 (setq user-full-name "Talandar"
       user-mail-address "talandar99@protonmail.com")
 ;; org directory
 (setq org-directory "~/.org/")
-;; disocrd status
-(setq elcord-editor-icon "emacs_icon")
-(setq elcord--editor-name "DOOM Emacs")
-(setq elcord- "DOOM Emacs")
-(elcord-mode)
-;; Beacon
-(beacon-mode 1)
 ;; Github Flavored Markdown exporter for Org Mode
 (eval-after-load "org"
   '(require 'ox-gfm nil t))
-;; treesitter
-(use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 ;; substition works as intended
 (setq evil-ex-substitute-case' sensitive)
 ;; treat _ as a word
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (modify-syntax-entry ?_ "w")))
+;; Beacon
+(beacon-mode 1)
+#+end_src
+*** Treesitter
+#+begin_src elisp
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+#+end_src
+*** Elcord
+#+begin_src elisp
+(setq elcord-editor-icon "emacs_icon")
+(setq elcord--editor-name "DOOM Emacs")
+(setq elcord- "DOOM Emacs")
+(elcord-mode)
+#+end_src
+*** LSP and Text Formatting
+#+begin_src elisp
 ;; use editorconfig
 (setq lsp-enable-indentation nil)
 (editorconfig-mode 1)
