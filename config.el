@@ -6,16 +6,14 @@
 (setq doom-themes-enable-bold nil)
 
 ;; transparency
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-(add-to-list 'default-frame-alist '(alpha . 90))
+;;(set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 ;; open in fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
 (setq doom-theme 'doom-tokyo-night)
 ;; line numbers
 (setq display-line-numbers-type 'relative)
-;; set background to be black
-(custom-set-faces '(default ((t (:background "#0a1124")))))
 
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
