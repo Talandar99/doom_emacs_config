@@ -33,7 +33,14 @@ main configuraiton file
 (setq doom-theme 'doom-tokyo-night)
 ;; line numbers
 (setq display-line-numbers-type 'relative)
+;; org bulltes
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
+
+#+RESULTS:
+: relative
+
 ** KeyBindings
 *** Harpoon
 #+begin_src elisp
@@ -139,6 +146,8 @@ custom packages
 (package! harpoon)
 ;;fennel
 (package! fennel-mode)
+;;org bulltes
+(package! org-bullets)
 #+end_src
 * init.el
 :PROPERTIES:

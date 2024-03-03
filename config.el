@@ -14,6 +14,9 @@
 (setq doom-theme 'doom-tokyo-night)
 ;; line numbers
 (setq display-line-numbers-type 'relative)
+;; org bulltes
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)

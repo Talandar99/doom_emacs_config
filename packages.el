@@ -14,3 +14,5 @@
 (package! harpoon)
 ;;fennel
 (package! fennel-mode)
+;;org bulltes
+(package! org-bullets)
