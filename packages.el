@@ -16,3 +16,5 @@
 (package! fennel-mode)
 ;;org bulltes
 (package! org-bullets)
+;;aphelia formater
+(package! apheleia)

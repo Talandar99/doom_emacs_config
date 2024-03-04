@@ -6,7 +6,6 @@
 (setq doom-themes-enable-bold nil)
 
 ;; transparency
-;;(set-frame-parameter (selected-frame) 'alpha '(90 . 90)) (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 (add-to-list 'default-frame-alist '(alpha-background . 90))
 ;; open in fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -14,9 +13,6 @@
 (setq doom-theme 'doom-tokyo-night)
 ;; line numbers
 (setq display-line-numbers-type 'relative)
-;; org bulltes
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
@@ -39,6 +35,11 @@
 (define-key evil-normal-state-map (kbd "C-M-=") 'enlarge-window-horizontally)
 (define-key evil-normal-state-map (kbd "C-M--") 'shrink-window-horizontally)
 
+(define-key evil-normal-state-map (kbd "C-d") (lambda () (interactive)
+                                                (call-interactively 'evil-scroll-down) (recenter)))
+(define-key evil-normal-state-map (kbd "C-u") (lambda () (interactive)
+                                                (call-interactively 'evil-scroll-up) (recenter)))
+
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
 ;; email / git config
@@ -57,6 +58,9 @@
             (modify-syntax-entry ?_ "w")))
 ;; Beacon
 (beacon-mode 1)
+;; org bulltes
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (use-package! tree-sitter
   :config
@@ -69,11 +73,7 @@
 (setq elcord- "DOOM Emacs")
 (elcord-mode)
 
-;; use editorconfig
-(setq lsp-enable-indentation nil)
-(editorconfig-mode 1)
-;; autoformat on save using editor config
-(add-hook 'before-save-hook #'editorconfig-format-buffer)
+(apheleia-global-mode +1)
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
 ;; disable wraping
