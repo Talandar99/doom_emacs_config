@@ -10,6 +10,7 @@
 ;; open in fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; rember to change cyan to dark-cyan in tokyonight theme if you value youe eyes c:
+;;.config/emacs/.local/straight/build-29.2/doom-themes
 (setq doom-theme 'doom-tokyo-night)
 ;; line numbers
 (setq display-line-numbers-type 'relative)
@@ -47,9 +48,6 @@
       user-mail-address "talandar99@protonmail.com")
 ;; org directory
 (setq org-directory "~/.org/")
-;; Github Flavored Markdown exporter for Org Mode
-(eval-after-load "org"
-  '(require 'ox-gfm nil t))
 ;; substition works as intended
 (setq evil-ex-substitute-case' sensitive)
 ;; treat _ as a word
@@ -63,10 +61,14 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+   :hook (prog-mode . turn-on-tree-sitter-mode)
+   :hook (tree-sitter-after-on . tree-sitter-hl-mode)
+   :config
+   (require 'tree-sitter-langs)
+   ;; This makes every node a link to a section of code
+   (setq tree-sitter-debug-jump-buttons t
+         ;; and this highlights the entire sub tree in your code
+         tree-sitter-debug-highlight-jump-region t))
 
 (setq elcord-editor-icon "emacs_icon")
 (setq elcord--editor-name "DOOM Emacs")
@@ -76,11 +78,14 @@
 (apheleia-global-mode +1)
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
-;; disable wraping
-(remove-hook 'text-mode-hook #'visual-line-mode)
-(+global-word-wrap-mode 0)
-(+word-wrap-mode 0)
 ;; tab add 4 space
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+;;disable line wraping
+(setq visual-line-mode -1)
+(setq toggle-truncate-lines 1)
+;; fixing markdown links
+(after! markdown-mode
+  (setq markdown-fontify-whole-heading-line nil
+        markdown-enable-wiki-links nil))
