@@ -16,3 +16,5 @@
 (package! org-bullets)
 ;;aphelia formater
 (package! apheleia)
+;;editing csv files
+(package! csv-mode)

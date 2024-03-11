@@ -78,6 +78,8 @@
 (apheleia-global-mode +1)
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+;; csv mode
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
 ;; tab add 4 space
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)

@@ -119,6 +119,8 @@ main configuraiton file
 (apheleia-global-mode +1)
 ;; fennel mode
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+;; csv mode
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
 ;; tab add 4 space
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -155,6 +157,8 @@ custom packages
 (package! org-bullets)
 ;;aphelia formater
 (package! apheleia)
+;;editing csv files
+(package! csv-mode)
 #+end_src
 * init.el
 :PROPERTIES:
@@ -228,9 +232,9 @@ packages built in doom emacs
 
        :term
        eshell            ; the elisp shell that works everywhere
-       ;;shell             ; simple shell REPL for Emacs
-       ;;term              ; basic terminal emulator for Emacs
-       ;;vterm             ; the best terminal emulation in Emacs
+       shell             ; simple shell REPL for Emacs
+       term              ; basic terminal emulator for Emacs
+       vterm             ; the best terminal emulation in Emacs
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
