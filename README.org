@@ -1,5 +1,7 @@
 #+title: DOOM Emacs
 /One Tool To Rule Them All/
+
+#+ATTR_HTML: :style margin-left: 0; margin-right: auto;
 [[https://raw.githubusercontent.com/jaidetree/doom-icon/master/cute-doom/src/doom.iconset/icon_512x512.png]]
 
 
