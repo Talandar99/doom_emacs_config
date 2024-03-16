@@ -3,17 +3,17 @@
 
 "One Tool To Rule Them All"
 
-* Installation
+** Installation
 - ~emacs~ for Xorg
 - ~emacs-wayland~ for wayland (pgtk)
 
-* config.el
+** config.el
 :PROPERTIES:
 :header-args: :tangle config.el
 :END:
 main configuraiton file
-** Theme
-*** Fonts
+*** Theme
+**** Fonts
 #+begin_src elisp
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16) ; inherits `doom-font''s :size
@@ -22,7 +22,7 @@ main configuraiton file
 ;; turn off bold
 (setq doom-themes-enable-bold nil)
 #+end_src
-*** Other
+**** Other
 #+begin_src elisp
 ;; transparency
 (add-to-list 'default-frame-alist '(alpha-background . 90))
@@ -47,8 +47,8 @@ main configuraiton file
 #+RESULTS:
 : relative
 
-** KeyBindings
-*** Harpoon
+*** KeyBindings
+**** Harpoon
 #+begin_src elisp
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
@@ -63,37 +63,37 @@ main configuraiton file
 (map! :n "M-9" 'harpoon-go-to-9)
 (map! :n "SPC-t-c" 'display-fill-column-indicator)
 #+end_src
-*** C-x and C-a increment works like in VIM
+**** C-x and C-a increment works like in VIM
 #+begin_src elisp
 (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (define-key evil-visual-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 (define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 #+end_src
-*** Horizontal split resizing
+**** Horizontal split resizing
 #+begin_src elisp
 (define-key evil-normal-state-map (kbd "C-M-=") 'enlarge-window-horizontally)
 (define-key evil-normal-state-map (kbd "C-M--") 'shrink-window-horizontally)
 #+end_src
-*** Recenter after scroll
+**** Recenter after scroll
 #+begin_src elisp
 (define-key evil-normal-state-map (kbd "C-d") (lambda () (interactive)
                                                 (call-interactively 'evil-scroll-down) (recenter)))
 (define-key evil-normal-state-map (kbd "C-u") (lambda () (interactive)
                                                 (call-interactively 'evil-scroll-up) (recenter)))
 #+end_src
-*** paste with Control-Shift-V
+**** Paste with Control-Shift-V
 #+begin_src elisp
 (map! "S-C-v" 'evil-paste-after)
 #+end_src
-*** dired preview
+**** Dired preview
 #+begin_src elisp
 (map! :leader
       (:map dired-mode-map
        :desc "preview" "p m" 'dired-preview-mode))
 #+end_src
-** Other
 *** Other
+**** Other
 #+begin_src elisp
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
@@ -126,7 +126,7 @@ main configuraiton file
 ;;disable projectile cache
 (setq projectile-enable-caching nil)
 #+end_src
-*** Treesitter
+**** Treesitter
 #+begin_src elisp
 (use-package! tree-sitter
    :hook (prog-mode . turn-on-tree-sitter-mode)
@@ -138,14 +138,14 @@ main configuraiton file
          ;; and this highlights the entire sub tree in your code
          tree-sitter-debug-highlight-jump-region t))
 #+end_src
-*** Elcord
+**** Elcord
 #+begin_src elisp
 (setq elcord-editor-icon "emacs_icon")
 (setq elcord--editor-name "DOOM Emacs")
 (setq elcord- "DOOM Emacs")
 (elcord-mode)
 #+end_src
-*** LSP and Text Formatting
+**** LSP and Text Formatting
 #+begin_src elisp
 (apheleia-global-mode +1)
 ;; fennel mode
@@ -164,7 +164,7 @@ main configuraiton file
   (setq markdown-fontify-whole-heading-line nil
         markdown-enable-wiki-links nil))
 #+end_src
-* packages.el
+** packages.el
 :PROPERTIES:
 :header-args: :tangle packages.el
 :END:
@@ -195,16 +195,16 @@ custom packages
 ;;preview files in dired
 (package! dired-preview)
 #+end_src
-* init.el
+** init.el
 :PROPERTIES:
 :header-args: :tangle init.el
 :END:
 packages built in doom emacs
-** respect visual line mode
+*** respect visual line mode
 #+begin_src elisp
 (setq evil-respect-visual-line-mode t)
 #+end_src
-** doom init
+*** doom init
 #+begin_src elisp
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
