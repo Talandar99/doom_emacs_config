@@ -1,12 +1,12 @@
 #+title: DOOM Emacs
+/One Tool To Rule Them All/
 [[https://raw.githubusercontent.com/jaidetree/doom-icon/master/cute-doom/src/doom.iconset/icon_512x512.png]]
 
-"One Tool To Rule Them All"
 
-** Installation
+* arch packages
 - ~emacs~ for Xorg
 - ~emacs-wayland~ for wayland (pgtk)
-
+* Config files
 ** config.el
 :PROPERTIES:
 :header-args: :tangle config.el
@@ -93,7 +93,7 @@ main configuraiton file
        :desc "preview" "p m" 'dired-preview-mode))
 #+end_src
 *** Other
-**** Other
+**** uncategorized
 #+begin_src elisp
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
