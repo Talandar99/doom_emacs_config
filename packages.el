@@ -18,3 +18,7 @@
 (package! apheleia)
 ;;editing csv files
 (package! csv-mode)
+;;show icons in dired
+(package! nerd-icons-dired)
+;;preview files in dired
+(package! dired-preview)
