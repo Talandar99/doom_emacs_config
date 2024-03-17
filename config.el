@@ -5,6 +5,15 @@
 ;; turn off bold
 (setq doom-themes-enable-bold nil)
 
+(custom-set-faces!
+  '(markdown-header-delimiter-face :foreground "#565f89" :height 0.9)
+  '(markdown-header-face-1 :height 1.8 :foreground "#9ece6a" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-2 :height 1.4 :foreground "#e0af68" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-3 :height 1.2 :foreground "#ff9e64" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-4 :height 1.15 :foreground "#f7768e" :weight bold :inherit markdown-header-face)
+  '(markdown-header-face-5 :height 1.1 :foreground "#bb9af7" :weight bold :inherit markdown-header-face)
+  '(markdown-header-face-6 :height 1.05 :foreground "#7aa2f7" :weight semi-bold :inherit markdown-header-face))
+
 ;; transparency
 (add-to-list 'default-frame-alist '(alpha-background . 90))
 ;; open in fullscreen
@@ -15,14 +24,6 @@
 ;; line numbers
 (setq display-line-numbers-type 'relative)
 ;; make markdown more readable
-(custom-set-faces!
-  '(markdown-header-delimiter-face :foreground "#565f89" :height 0.9)
-  '(markdown-header-face-1 :height 1.8 :foreground "#9ece6a" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-2 :height 1.4 :foreground "#e0af68" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-3 :height 1.2 :foreground "#ff9e64" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-4 :height 1.15 :foreground "#f7768e" :weight bold :inherit markdown-header-face)
-  '(markdown-header-face-5 :height 1.1 :foreground "#bb9af7" :weight bold :inherit markdown-header-face)
-  '(markdown-header-face-6 :height 1.05 :foreground "#7aa2f7" :weight semi-bold :inherit markdown-header-face))
 
 (map! :n "M-=" 'harpoon-add-file)
 (map! :n "M--" 'harpoon-toggle-file)
@@ -74,8 +75,7 @@
 ;; org bulltes
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-;; dired fancy icons
-(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+
 ;; dired preview
 (setq dired-preview-delay 0)
 (setq dired-preview-max-size (expt 2 24))
@@ -84,6 +84,8 @@
               "\\(mkv\\|webm\\|mp4\\|mp3\\|ogg\\|m4a"
               "\\|gz\\|zst\\|tar\\|xz\\|rar"
               "\\|iso\\)"))
+;; dired fancy icons
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 ;;disable projectile cache
 (setq projectile-enable-caching nil)
 

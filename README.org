@@ -8,12 +8,14 @@
 * arch packages
 - ~emacs~ for Xorg
 - ~emacs-wayland~ for wayland (pgtk)
+- ~prettier~ for web formating
+- ~clang-format~ for c formating
 * Config files
 ** config.el
 :PROPERTIES:
 :header-args: :tangle config.el
 :END:
-main configuraiton file
+This is the main configuration file
 *** Theme
 **** Fonts
 #+begin_src elisp
@@ -23,6 +25,17 @@ main configuraiton file
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
 ;; turn off bold
 (setq doom-themes-enable-bold nil)
+#+end_src
+**** Change Size of different md headings for improved readability
+#+begin_src elisp
+(custom-set-faces!
+  '(markdown-header-delimiter-face :foreground "#565f89" :height 0.9)
+  '(markdown-header-face-1 :height 1.8 :foreground "#9ece6a" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-2 :height 1.4 :foreground "#e0af68" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-3 :height 1.2 :foreground "#ff9e64" :weight extra-bold :inherit markdown-header-face)
+  '(markdown-header-face-4 :height 1.15 :foreground "#f7768e" :weight bold :inherit markdown-header-face)
+  '(markdown-header-face-5 :height 1.1 :foreground "#bb9af7" :weight bold :inherit markdown-header-face)
+  '(markdown-header-face-6 :height 1.05 :foreground "#7aa2f7" :weight semi-bold :inherit markdown-header-face))
 #+end_src
 **** Other
 #+begin_src elisp
@@ -36,18 +49,7 @@ main configuraiton file
 ;; line numbers
 (setq display-line-numbers-type 'relative)
 ;; make markdown more readable
-(custom-set-faces!
-  '(markdown-header-delimiter-face :foreground "#565f89" :height 0.9)
-  '(markdown-header-face-1 :height 1.8 :foreground "#9ece6a" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-2 :height 1.4 :foreground "#e0af68" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-3 :height 1.2 :foreground "#ff9e64" :weight extra-bold :inherit markdown-header-face)
-  '(markdown-header-face-4 :height 1.15 :foreground "#f7768e" :weight bold :inherit markdown-header-face)
-  '(markdown-header-face-5 :height 1.1 :foreground "#bb9af7" :weight bold :inherit markdown-header-face)
-  '(markdown-header-face-6 :height 1.05 :foreground "#7aa2f7" :weight semi-bold :inherit markdown-header-face))
 #+end_src
-
-#+RESULTS:
-: relative
 
 *** KeyBindings
 **** Harpoon
@@ -95,7 +97,7 @@ main configuraiton file
        :desc "preview" "p m" 'dired-preview-mode))
 #+end_src
 *** Other
-**** uncategorized
+**** Uncategorized
 #+begin_src elisp
 ;; remove asking before exit
 (setq confirm-kill-emacs nil)
@@ -115,8 +117,9 @@ main configuraiton file
 ;; org bulltes
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-;; dired fancy icons
-(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+#+end_src
+**** Dired customization
+#+begin_src elisp
 ;; dired preview
 (setq dired-preview-delay 0)
 (setq dired-preview-max-size (expt 2 24))
@@ -125,6 +128,8 @@ main configuraiton file
               "\\(mkv\\|webm\\|mp4\\|mp3\\|ogg\\|m4a"
               "\\|gz\\|zst\\|tar\\|xz\\|rar"
               "\\|iso\\)"))
+;; dired fancy icons
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 ;;disable projectile cache
 (setq projectile-enable-caching nil)
 #+end_src
@@ -172,7 +177,7 @@ main configuraiton file
 :PROPERTIES:
 :header-args: :tangle packages.el
 :END:
-custom packages
+This file contain all custom packages
 #+begin_src elisp
 (package! tldr)
 ;;dired commander
@@ -203,12 +208,13 @@ custom packages
 :PROPERTIES:
 :header-args: :tangle init.el
 :END:
-packages built in doom emacs
-*** respect visual line mode
+This is the first file that get's initialized
+*** Respect visual line mode
+this is needed in order for emacs to always respect line visual mode settings
 #+begin_src elisp
 (setq evil-respect-visual-line-mode t)
 #+end_src
-*** doom init
+*** Doom init
 #+begin_src elisp
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
