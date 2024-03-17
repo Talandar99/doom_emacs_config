@@ -118,3 +118,5 @@
 (after! markdown-mode
   (setq markdown-fontify-whole-heading-line nil
         markdown-enable-wiki-links nil))
+;; don't respect default formater settings (2 spaces indenting is joke)
+(setq apheleia-formatters-respect-indent-level nil)

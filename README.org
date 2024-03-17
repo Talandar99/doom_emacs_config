@@ -165,6 +165,8 @@ main configuraiton file
 (after! markdown-mode
   (setq markdown-fontify-whole-heading-line nil
         markdown-enable-wiki-links nil))
+;; don't respect default formater settings (2 spaces indenting is joke)
+(setq apheleia-formatters-respect-indent-level nil)
 #+end_src
 ** packages.el
 :PROPERTIES:
@@ -309,7 +311,7 @@ packages built in doom emacs
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-       (cc +lsp)         ; C > C++ == 1
+       (cc +lsp)           ; C > Cpp == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
