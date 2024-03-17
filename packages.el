@@ -1,6 +1,4 @@
 (package! tldr)
-;;dired commander
-(package! diredc)
 ;;discord presence
 (package! elcord)
 ;;beacon

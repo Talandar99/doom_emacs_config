@@ -3,8 +3,6 @@
 
 #+ATTR_HTML: :style margin-left: 0; margin-right: auto;
 [[https://raw.githubusercontent.com/jaidetree/doom-icon/master/cute-doom/src/doom.iconset/icon_512x512.png]]
-
-
 * arch packages
 - ~emacs~ for Xorg
 - ~emacs-wayland~ for wayland (pgtk)
@@ -177,11 +175,8 @@ This is the main configuration file
 :PROPERTIES:
 :header-args: :tangle packages.el
 :END:
-This file contain all custom packages
 #+begin_src elisp
 (package! tldr)
-;;dired commander
-(package! diredc)
 ;;discord presence
 (package! elcord)
 ;;beacon
