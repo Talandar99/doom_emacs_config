@@ -208,6 +208,7 @@ This is the first file that get's initialized
 this is needed in order for emacs to always respect line visual mode settings
 #+begin_src elisp
 (setq evil-respect-visual-line-mode t)
+(add-hook 'text-mode-hook (lambda () (setq truncate-lines t)))
 #+end_src
 *** Doom init
 #+begin_src elisp
